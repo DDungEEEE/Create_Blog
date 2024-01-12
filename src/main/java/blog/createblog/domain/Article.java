@@ -16,4 +16,6 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @Column(name = "member", nullable = false)
+    private String member;
 }
