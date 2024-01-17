@@ -22,4 +22,14 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @Builder
+    public Article(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
+
+
+    @Column(name = "member", nullable = false)
+    private String member;
+
 }
