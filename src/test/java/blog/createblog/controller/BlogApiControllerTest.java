@@ -31,7 +31,7 @@ class BlogApiControllerTest {
         //given
         final String name = "제목2";
         final String content = "헤헤";
-    
+
         //when
         AddArticleRequest addArticleRequest = new AddArticleRequest(name, content);
 
