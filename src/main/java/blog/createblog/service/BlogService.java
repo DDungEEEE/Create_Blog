@@ -21,4 +21,12 @@ public class BlogService {
         return blogRepository.findAll();
     }
 
+    public void delete(long id){
+        blogRepository.deleteById(id);
+    }
+
+    public Article findById(long id){
+        return blogRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found" + id));
+        //IllegalArgumentException 런타임 에러
+    }
 }

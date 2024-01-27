@@ -28,8 +28,10 @@ public class Article {
         this.content = content;
     }
 
+    public void Update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 
-    @Column(name = "member", nullable = false)
-    private String member;
 
 }
