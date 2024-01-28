@@ -1,9 +1,11 @@
 package blog.createblog.dto;
 
 import blog.createblog.domain.Article;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 //@RequiredArgsConstructor
+@Getter
 public class ArticleListViewResponse {
 
     private final Long id;

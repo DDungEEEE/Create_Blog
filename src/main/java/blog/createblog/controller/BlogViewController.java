@@ -1,11 +1,14 @@
 package blog.createblog.controller;
 
+import blog.createblog.domain.Article;
 import blog.createblog.dto.ArticleListViewResponse;
+import blog.createblog.dto.ArticleViewResponse;
 import blog.createblog.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -20,8 +23,17 @@ public class BlogViewController {
        List<ArticleListViewResponse> articles =  blogService.findAll().stream()
                .map(ArticleListViewResponse::new)
                .toList();
-
+        System.out.println("articles.toString() = " + articles.toString());
        model.addAttribute("articles", articles);
        return "articleList";
+    }
+
+    @GetMapping("/articles/{id}")
+    public String getArticle(@PathVariable Long id, Model model){
+        Article article = blogService.findById(id);
+
+        model.addAttribute("article", new ArticleViewResponse(article));
+
+        return "article";
     }
 }
